@@ -2,6 +2,7 @@ package org.rmi.server.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Book implements Serializable {
 	private static final long serialVersionUID = 8307629935988000912L;
-	
+
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -54,7 +55,7 @@ public class Book implements Serializable {
 	private String manufacturer;
 
 	@NonNull
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "type")
 	private BookType type;
 }

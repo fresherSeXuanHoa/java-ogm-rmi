@@ -34,8 +34,5 @@ public class Application {
 		} catch (NotBoundException e) {
 			e.printStackTrace();
 		}
-
-		System.out.println("Book Service:" + bookService.findAll());
-		System.out.println("Book Type Service: " + bookTypeService.findAll());
 	}
 }

@@ -9,7 +9,7 @@ import org.rmi.server.entity.BookType;
 public interface BookTypeRepository extends Remote {
 	public List<BookType> findAll() throws RemoteException;
 
-	public BookType findByID(Long id) throws RemoteException;
+	public BookType findByName(String name) throws RemoteException;
 
 	public boolean save(BookType bookType) throws RemoteException;
 

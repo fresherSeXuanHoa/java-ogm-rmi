@@ -31,6 +31,6 @@ public class Application {
 			System.err.println("\nRMI Server is running in address: " + RMI_SERVER_URL + ":" + RMI_SERVER_PORT);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}		
+		}
 	}
 }

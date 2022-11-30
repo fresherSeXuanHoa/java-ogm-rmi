@@ -40,10 +40,12 @@ public class BookTypeService extends UnicastRemoteObject implements BookTypeRepo
 	}
 
 	@Override
-	public BookType findByID(Long id) throws RemoteException {
+	public BookType findByName(String name) throws RemoteException {
 		try {
 			entityManager.getTransaction().begin();
-			BookType bookType = entityManager.find(BookType.class, id);
+			String queryCommand = "db.type.findOne({\"name\": \"" + name + "\"})";
+			BookType bookType = (BookType) entityManager.createNativeQuery(queryCommand, BookType.class)
+					.getSingleResult();
 			entityManager.getTransaction().commit();
 			return bookType;
 		} catch (Exception e) {
